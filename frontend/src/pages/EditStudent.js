@@ -18,7 +18,7 @@ const EditStudent = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`https://student-management-system-yddc.onrender.com/${id}`)
+    axios.get(`https://student-management-system-yddc.onrender.com/students/${id}`)
       .then(response => {
         const studentData = response.data;
         setStudent({
@@ -43,7 +43,7 @@ const EditStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`https://student-management-system-yddc.onrender.com/${id}`, student)
+    axios.put(`https://student-management-system-yddc.onrender.com/students/${id}`, student)
       .then(() => {
         alert('Student updated successfully!');
         navigate('/students');

@@ -27,7 +27,7 @@ const AddStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://student-management-system-yddc.onrender.com', student)
+    axios.post('https://student-management-system-yddc.onrender.com/students', student)
       .then((response) => {
         console.log(response.data);  
         alert('Student added successfully!');
