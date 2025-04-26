@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Student = require('../models/Student.js');
-
+const Student = require('../models/Student');
 
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);  // Log the incoming request data for debugging
     const student = new Student(req.body);
     const savedStudent = await student.save();
     res.status(201).json(savedStudent);
@@ -12,7 +12,6 @@ router.post('/', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-
 
 router.get('/', async (req, res) => {
   try {
@@ -23,7 +22,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/:id', async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
@@ -33,7 +31,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 router.put('/:id', async (req, res) => {
   try {
     const updated = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -42,7 +39,6 @@ router.put('/:id', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-
 
 router.delete('/:id', async (req, res) => {
   try {
