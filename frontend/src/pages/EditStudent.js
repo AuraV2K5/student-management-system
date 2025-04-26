@@ -43,7 +43,7 @@ const EditStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:5000/students/${id}`, student)
+    axios.put(`https://student-management-system-yddc.onrender.com/${id}`, student)
       .then(() => {
         alert('Student updated successfully!');
         navigate('/students');

@@ -27,8 +27,9 @@ const AddStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:5000/students', student)
-      .then(() => {
+    axios.post('https://student-management-system-yddc.onrender.com', student)
+      .then((response) => {
+        console.log(response.data);  
         alert('Student added successfully!');
         navigate('/students');
       })

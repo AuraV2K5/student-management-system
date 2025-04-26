@@ -6,7 +6,7 @@ const StudentList = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/students')
+    axios.get('https://student-management-system-yddc.onrender.com')
       .then(res => setStudents(res.data))
       .catch(err => {
         console.error(err);
@@ -16,7 +16,7 @@ const StudentList = () => {
 
   const deleteStudent = (id) => {
     if (window.confirm('Are you sure you want to delete this student?')) {
-      axios.delete(`http://localhost:5000/students/${id}`)
+      axios.delete(`https://student-management-system-yddc.onrender.com/${id}`)
         .then(() => {
           setStudents(prevStudents => prevStudents.filter(student => student._id !== id));
           alert('Student deleted successfully!');
