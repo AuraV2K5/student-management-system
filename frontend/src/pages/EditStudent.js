@@ -18,7 +18,7 @@ const EditStudent = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/students/${id}`)
+    axios.get(`https://student-management-system-yddc.onrender.com/${id}`)
       .then(response => {
         const studentData = response.data;
         setStudent({
